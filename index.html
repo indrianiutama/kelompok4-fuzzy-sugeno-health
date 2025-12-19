@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
@@ -30,11 +30,36 @@
                 <a href="#profiles" class="nav-link">Profil</a>
                 <a href="#history" class="nav-link">Riwayat</a>
             </nav>
-            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
-                <span class="theme-icon">🌙</span>
-            </button>
+            <div class="header-actions" style="display: flex; align-items: center; gap: 0.5rem;">
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+                <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                    <span class="theme-icon">🌙</span>
+                </button>
+            </div>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <nav class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-links">
+            <a href="#calculator" class="mobile-nav-link">
+                <span>🧮</span> Kalkulator
+            </a>
+            <a href="#visualization" class="mobile-nav-link">
+                <span>📈</span> Visualisasi
+            </a>
+            <a href="#profiles" class="mobile-nav-link">
+                <span>👤</span> Profil
+            </a>
+            <a href="#history" class="mobile-nav-link">
+                <span>📋</span> Riwayat
+            </a>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section class="hero">
@@ -371,21 +396,22 @@
                     <p><strong>⚠️ Disclaimer:</strong></p>
                     <p>Website ini adalah simulator edukasi untuk pembelajaran Kecerdasan Buatan. Hasil analisis
                         <strong>bukan pengganti diagnosis medis profesional</strong>. Selalu konsultasikan dengan dokter
-                        untuk pemeriksaan kesehatan yang akurat.</p>
+                        untuk pemeriksaan kesehatan yang akurat.
+                    </p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© 2024 FuzzyHealth - Tugas Kecerdasan Buatan | Metode Fuzzy Logic Sugeno</p>
+                <p>© 2025 FuzzyHealth - Tugas Kecerdasan Buatan - Kelompok 4 | Metode Fuzzy Logic Sugeno</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
-    <script src="fuzzy-engine.js"></script>
-    <script src="charts.js"></script>
-    <script src="profiles.js"></script>
-    <script src="history.js"></script>
-    <script src="app.js"></script>
+    <script src="js/fuzzy-engine.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/profiles.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/app.js"></script>
 </body>
 
 </html>
