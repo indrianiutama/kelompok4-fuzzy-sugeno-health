@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuzzyHealth - Penilaian Risiko Kesehatan dengan Fuzzy Sugeno</title>
+    <meta name="description" content="Sistem penilaian risiko kesehatan menggunakan metode Fuzzy Logic Sugeno untuk layanan kesehatan masyarakat">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <!-- Theme Toggle & Header -->
+    <header class="header">
+        <div class="container header-content">
+            <div class="logo">
+                <span class="logo-icon">🧬</span>
+                <span class="logo-text">FuzzyHealth</span>
+            </div>
+            <nav class="nav">
+                <a href="#calculator" class="nav-link">Kalkulator</a>
+                <a href="#visualization" class="nav-link">Visualisasi</a>
+                <a href="#profiles" class="nav-link">Profil</a>
+                <a href="#history" class="nav-link">Riwayat</a>
+            </nav>
+            <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+                <span class="theme-icon">🌙</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <span class="hero-badge">🤖 Kecerdasan Buatan</span>
+                <h1 class="hero-title">Penilaian Risiko Kesehatan<br><span class="gradient-text">Fuzzy Logic Sugeno</span></h1>
+                <p class="hero-description">Sistem cerdas untuk menilai tingkat risiko kesehatan Anda menggunakan metode inferensi Fuzzy Sugeno. Cocok untuk layanan kesehatan masyarakat.</p>
+                <div class="hero-buttons">
+                    <a href="#calculator" class="btn btn-primary">Mulai Analisis</a>
+                    <a href="#about" class="btn btn-outline">Pelajari Metode</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="floating-card card-1">
+                    <span>📊</span> Tekanan Darah
+                </div>
+                <div class="floating-card card-2">
+                    <span>🩸</span> Gula Darah
+                </div>
+                <div class="floating-card card-3">
+                    <span>⚖️</span> BMI
+                </div>
+                <div class="floating-card card-4">
+                    <span>🎂</span> Usia
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Fuzzy Sugeno -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">Tentang Metode Fuzzy Sugeno</h2>
+            <div class="about-grid">
+                <div class="about-card">
+                    <div class="about-icon">1️⃣</div>
+                    <h3>Fuzzifikasi</h3>
+                    <p>Mengubah nilai crisp (tegas) input menjadi derajat keanggotaan pada himpunan fuzzy menggunakan fungsi keanggotaan.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">2️⃣</div>
+                    <h3>Evaluasi Rules</h3>
+                    <p>Mengevaluasi aturan IF-THEN fuzzy untuk menentukan firing strength setiap aturan berdasarkan operator AND/OR.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">3️⃣</div>
+                    <h3>Inferensi Sugeno</h3>
+                    <p>Output berupa fungsi linear atau konstanta dari input, berbeda dengan Mamdani yang menggunakan himpunan fuzzy.</p>
+                </div>
+                <div class="about-card">
+                    <div class="about-icon">4️⃣</div>
+                    <h3>Defuzzifikasi</h3>
+                    <p>Menghitung weighted average dari semua output rules untuk menghasilkan nilai crisp akhir.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Profile Manager -->
+    <section class="profiles-section" id="profiles">
+        <div class="container">
+            <h2 class="section-title">👤 Kelola Profil Pengguna</h2>
+            <p class="section-subtitle">Tambahkan profil untuk menyimpan data kesehatan berbagai orang</p>
+            
+            <div class="profile-manager">
+                <div class="profile-form-card">
+                    <h3>Tambah Profil Baru</h3>
+                    <form id="profileForm" class="profile-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profileName">Nama Lengkap</label>
+                                <input type="text" id="profileName" placeholder="Masukkan nama" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="profileAge">Usia (tahun)</label>
+                                <input type="number" id="profileAge" placeholder="Usia" min="1" max="120" required>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="profileGender">Jenis Kelamin</label>
+                                <select id="profileGender" required>
+                                    <option value="">Pilih...</option>
+                                    <option value="male">Laki-laki</option>
+                                    <option value="female">Perempuan</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="profilePhone">No. Telepon (opsional)</label>
+                                <input type="tel" id="profilePhone" placeholder="08xxxxxxxxxx">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-block">
+                            <span>➕</span> Tambah Profil
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="profiles-list-card">
+                    <div class="profiles-header">
+                        <h3>Daftar Profil</h3>
+                        <span class="profile-count" id="profileCount">0 profil</span>
+                    </div>
+                    <div class="profiles-list" id="profilesList">
+                        <div class="empty-state">
+                            <span class="empty-icon">👥</span>
+                            <p>Belum ada profil. Tambahkan profil baru untuk memulai.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Calculator Section -->
+    <section class="calculator" id="calculator">
+        <div class="container">
+            <h2 class="section-title">🧮 Kalkulator Fuzzy Sugeno</h2>
+            <p class="section-subtitle">Masukkan parameter kesehatan untuk mendapatkan penilaian risiko</p>
+            
+            <!-- Active Profile Selector -->
+            <div class="active-profile-selector">
+                <label for="activeProfile">Pilih Profil untuk Analisis:</label>
+                <select id="activeProfile">
+                    <option value="">-- Tanpa Profil --</option>
+                </select>
+            </div>
+            
+            <div class="calc-container">
+                <div class="input-section">
+                    <form id="fuzzyForm">
+                        <!-- Tekanan Darah -->
+                        <div class="input-card">
+                            <div class="input-header">
+                                <span class="input-icon">📊</span>
+                                <div>
+                                    <h4>Tekanan Darah Sistolik</h4>
+                                    <p>Satuan: mmHg</p>
+                                </div>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" id="bloodPressure" min="70" max="200" value="120" class="slider">
+                                <div class="slider-labels">
+                                    <span>70</span>
+                                    <span class="value-display" id="bpValue">120</span>
+                                    <span>200</span>
+                                </div>
+                            </div>
+                            <div class="membership-preview" id="bpMembership"></div>
+                        </div>
+
+                        <!-- Gula Darah -->
+                        <div class="input-card">
+                            <div class="input-header">
+                                <span class="input-icon">🩸</span>
+                                <div>
+                                    <h4>Gula Darah Puasa</h4>
+                                    <p>Satuan: mg/dL</p>
+                                </div>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" id="bloodSugar" min="50" max="300" value="100" class="slider">
+                                <div class="slider-labels">
+                                    <span>50</span>
+                                    <span class="value-display" id="bsValue">100</span>
+                                    <span>300</span>
+                                </div>
+                            </div>
+                            <div class="membership-preview" id="bsMembership"></div>
+                        </div>
+
+                        <!-- BMI -->
+                        <div class="input-card">
+                            <div class="input-header">
+                                <span class="input-icon">⚖️</span>
+                                <div>
+                                    <h4>Body Mass Index (BMI)</h4>
+                                    <p>Berat(kg) / Tinggi(m)²</p>
+                                </div>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" id="bmi" min="15" max="45" value="22" step="0.1" class="slider">
+                                <div class="slider-labels">
+                                    <span>15</span>
+                                    <span class="value-display" id="bmiValue">22.0</span>
+                                    <span>45</span>
+                                </div>
+                            </div>
+                            <div class="membership-preview" id="bmiMembership"></div>
+                        </div>
+
+                        <!-- Usia -->
+                        <div class="input-card">
+                            <div class="input-header">
+                                <span class="input-icon">🎂</span>
+                                <div>
+                                    <h4>Usia</h4>
+                                    <p>Satuan: tahun</p>
+                                </div>
+                            </div>
+                            <div class="slider-container">
+                                <input type="range" id="age" min="1" max="100" value="30" class="slider">
+                                <div class="slider-labels">
+                                    <span>1</span>
+                                    <span class="value-display" id="ageValue">30</span>
+                                    <span>100</span>
+                                </div>
+                            </div>
+                            <div class="membership-preview" id="ageMembership"></div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            <span>🔬</span> Analisis Risiko Kesehatan
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Results Section -->
+                <div class="results-section" id="results">
+                    <div class="result-card">
+                        <h3>Hasil Analisis</h3>
+                        
+                        <!-- Risk Gauge -->
+                        <div class="gauge-container">
+                            <div class="gauge">
+                                <div class="gauge-fill" id="gaugeFill"></div>
+                                <div class="gauge-center">
+                                    <span class="gauge-value" id="riskValue">--</span>
+                                    <span class="gauge-label">Skor Risiko</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="risk-level" id="riskLevel">
+                            <span class="risk-badge">Menunggu Input</span>
+                        </div>
+
+                        <div class="result-details" id="resultDetails">
+                            <p class="placeholder-text">Masukkan parameter kesehatan dan klik "Analisis" untuk melihat hasil</p>
+                        </div>
+                    </div>
+
+                    <!-- Calculation Steps -->
+                    <div class="steps-card" id="stepsCard" style="display: none;">
+                        <h3>📝 Langkah Perhitungan Sugeno</h3>
+                        <div class="steps-content" id="stepsContent"></div>
+                    </div>
+
+                    <!-- Health Tips -->
+                    <div class="tips-card" id="tipsCard" style="display: none;">
+                        <h3>💡 Saran Kesehatan</h3>
+                        <div class="tips-content" id="tipsContent"></div>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="result-actions" id="resultActions" style="display: none;">
+                        <button class="btn btn-secondary" id="btnSaveHistory">
+                            <span>💾</span> Simpan ke Riwayat
+                        </button>
+                        <button class="btn btn-secondary" id="btnExportPDF">
+                            <span>📄</span> Export PDF
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visualization Section -->
+    <section class="visualization" id="visualization">
+        <div class="container">
+            <h2 class="section-title">📈 Visualisasi Fungsi Keanggotaan</h2>
+            <p class="section-subtitle">Grafik real-time menampilkan derajat keanggotaan untuk setiap input</p>
+            
+            <div class="charts-grid">
+                <div class="chart-card">
+                    <h4>Tekanan Darah (mmHg)</h4>
+                    <canvas id="chartBP"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h4>Gula Darah (mg/dL)</h4>
+                    <canvas id="chartBS"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h4>BMI</h4>
+                    <canvas id="chartBMI"></canvas>
+                </div>
+                <div class="chart-card">
+                    <h4>Usia (tahun)</h4>
+                    <canvas id="chartAge"></canvas>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- History Section -->
+    <section class="history" id="history">
+        <div class="container">
+            <h2 class="section-title">📋 Riwayat Analisis</h2>
+            <p class="section-subtitle">Lihat dan kelola riwayat analisis kesehatan sebelumnya</p>
+            
+            <div class="history-controls">
+                <button class="btn btn-outline" id="btnClearHistory">
+                    <span>🗑️</span> Hapus Semua Riwayat
+                </button>
+            </div>
+            
+            <div class="history-list" id="historyList">
+                <div class="empty-state">
+                    <span class="empty-icon">📭</span>
+                    <p>Belum ada riwayat analisis. Lakukan analisis pertama Anda!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="logo-icon">🧬</span>
+                    <span class="logo-text">FuzzyHealth</span>
+                    <p>Sistem Penilaian Risiko Kesehatan menggunakan Fuzzy Logic Sugeno</p>
+                </div>
+                <div class="footer-info">
+                    <p><strong>⚠️ Disclaimer:</strong></p>
+                    <p>Website ini adalah simulator edukasi untuk pembelajaran Kecerdasan Buatan. Hasil analisis <strong>bukan pengganti diagnosis medis profesional</strong>. Selalu konsultasikan dengan dokter untuk pemeriksaan kesehatan yang akurat.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 FuzzyHealth - Tugas Kecerdasan Buatan | Metode Fuzzy Logic Sugeno</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/fuzzy-engine.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/profiles.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
