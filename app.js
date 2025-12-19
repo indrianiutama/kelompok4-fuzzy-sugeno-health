@@ -43,6 +43,35 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ========================================
+    // Mobile Navigation Toggle
+    // ========================================
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    mobileMenuToggle?.addEventListener('click', () => {
+        mobileMenuToggle.classList.toggle('active');
+        mobileNav?.classList.toggle('active');
+    });
+
+    // Close mobile nav when clicking a link
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenuToggle?.classList.remove('active');
+            mobileNav?.classList.remove('active');
+        });
+    });
+
+    // Close mobile nav when clicking outside
+    document.addEventListener('click', (e) => {
+        if (mobileNav?.classList.contains('active') &&
+            !mobileNav.contains(e.target) &&
+            !mobileMenuToggle?.contains(e.target)) {
+            mobileMenuToggle?.classList.remove('active');
+            mobileNav?.classList.remove('active');
+        }
+    });
+
+    // ========================================
     // Slider Updates
     // ========================================
     const sliders = {
