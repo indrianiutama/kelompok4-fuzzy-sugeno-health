@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FuzzyHealth - Penilaian Risiko Kesehatan dengan Fuzzy Sugeno</title>
-    <meta name="description" content="Sistem penilaian risiko kesehatan menggunakan metode Fuzzy Logic Sugeno untuk layanan kesehatan masyarakat">
+    <meta name="description"
+        content="Sistem penilaian risiko kesehatan menggunakan metode Fuzzy Logic Sugeno untuk layanan kesehatan masyarakat">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
+
 <body>
     <!-- Theme Toggle & Header -->
     <header class="header">
@@ -37,8 +41,10 @@
         <div class="container">
             <div class="hero-content">
                 <span class="hero-badge">🤖 Kecerdasan Buatan</span>
-                <h1 class="hero-title">Penilaian Risiko Kesehatan<br><span class="gradient-text">Fuzzy Logic Sugeno</span></h1>
-                <p class="hero-description">Sistem cerdas untuk menilai tingkat risiko kesehatan Anda menggunakan metode inferensi Fuzzy Sugeno. Cocok untuk layanan kesehatan masyarakat.</p>
+                <h1 class="hero-title">Penilaian Risiko Kesehatan<br><span class="gradient-text">Fuzzy Logic
+                        Sugeno</span></h1>
+                <p class="hero-description">Sistem cerdas untuk menilai tingkat risiko kesehatan Anda menggunakan metode
+                    inferensi Fuzzy Sugeno. Cocok untuk layanan kesehatan masyarakat.</p>
                 <div class="hero-buttons">
                     <a href="#calculator" class="btn btn-primary">Mulai Analisis</a>
                     <a href="#about" class="btn btn-outline">Pelajari Metode</a>
@@ -69,17 +75,20 @@
                 <div class="about-card">
                     <div class="about-icon">1️⃣</div>
                     <h3>Fuzzifikasi</h3>
-                    <p>Mengubah nilai crisp (tegas) input menjadi derajat keanggotaan pada himpunan fuzzy menggunakan fungsi keanggotaan.</p>
+                    <p>Mengubah nilai crisp (tegas) input menjadi derajat keanggotaan pada himpunan fuzzy menggunakan
+                        fungsi keanggotaan.</p>
                 </div>
                 <div class="about-card">
                     <div class="about-icon">2️⃣</div>
                     <h3>Evaluasi Rules</h3>
-                    <p>Mengevaluasi aturan IF-THEN fuzzy untuk menentukan firing strength setiap aturan berdasarkan operator AND/OR.</p>
+                    <p>Mengevaluasi aturan IF-THEN fuzzy untuk menentukan firing strength setiap aturan berdasarkan
+                        operator AND/OR.</p>
                 </div>
                 <div class="about-card">
                     <div class="about-icon">3️⃣</div>
                     <h3>Inferensi Sugeno</h3>
-                    <p>Output berupa fungsi linear atau konstanta dari input, berbeda dengan Mamdani yang menggunakan himpunan fuzzy.</p>
+                    <p>Output berupa fungsi linear atau konstanta dari input, berbeda dengan Mamdani yang menggunakan
+                        himpunan fuzzy.</p>
                 </div>
                 <div class="about-card">
                     <div class="about-icon">4️⃣</div>
@@ -95,7 +104,7 @@
         <div class="container">
             <h2 class="section-title">👤 Kelola Profil Pengguna</h2>
             <p class="section-subtitle">Tambahkan profil untuk menyimpan data kesehatan berbagai orang</p>
-            
+
             <div class="profile-manager">
                 <div class="profile-form-card">
                     <h3>Tambah Profil Baru</h3>
@@ -129,7 +138,7 @@
                         </button>
                     </form>
                 </div>
-                
+
                 <div class="profiles-list-card">
                     <div class="profiles-header">
                         <h3>Daftar Profil</h3>
@@ -151,7 +160,7 @@
         <div class="container">
             <h2 class="section-title">🧮 Kalkulator Fuzzy Sugeno</h2>
             <p class="section-subtitle">Masukkan parameter kesehatan untuk mendapatkan penilaian risiko</p>
-            
+
             <!-- Active Profile Selector -->
             <div class="active-profile-selector">
                 <label for="activeProfile">Pilih Profil untuk Analisis:</label>
@@ -159,7 +168,7 @@
                     <option value="">-- Tanpa Profil --</option>
                 </select>
             </div>
-            
+
             <div class="calc-container">
                 <div class="input-section">
                     <form id="fuzzyForm">
@@ -253,7 +262,7 @@
                 <div class="results-section" id="results">
                     <div class="result-card">
                         <h3>Hasil Analisis</h3>
-                        
+
                         <!-- Risk Gauge -->
                         <div class="gauge-container">
                             <div class="gauge">
@@ -264,13 +273,14 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                         <div class="risk-level" id="riskLevel">
                             <span class="risk-badge">Menunggu Input</span>
                         </div>
 
                         <div class="result-details" id="resultDetails">
-                            <p class="placeholder-text">Masukkan parameter kesehatan dan klik "Analisis" untuk melihat hasil</p>
+                            <p class="placeholder-text">Masukkan parameter kesehatan dan klik "Analisis" untuk melihat
+                                hasil</p>
                         </div>
                     </div>
 
@@ -285,7 +295,7 @@
                         <h3>💡 Saran Kesehatan</h3>
                         <div class="tips-content" id="tipsContent"></div>
                     </div>
-                    
+
                     <!-- Action Buttons -->
                     <div class="result-actions" id="resultActions" style="display: none;">
                         <button class="btn btn-secondary" id="btnSaveHistory">
@@ -305,7 +315,7 @@
         <div class="container">
             <h2 class="section-title">📈 Visualisasi Fungsi Keanggotaan</h2>
             <p class="section-subtitle">Grafik real-time menampilkan derajat keanggotaan untuk setiap input</p>
-            
+
             <div class="charts-grid">
                 <div class="chart-card">
                     <h4>Tekanan Darah (mmHg)</h4>
@@ -332,13 +342,13 @@
         <div class="container">
             <h2 class="section-title">📋 Riwayat Analisis</h2>
             <p class="section-subtitle">Lihat dan kelola riwayat analisis kesehatan sebelumnya</p>
-            
+
             <div class="history-controls">
                 <button class="btn btn-outline" id="btnClearHistory">
                     <span>🗑️</span> Hapus Semua Riwayat
                 </button>
             </div>
-            
+
             <div class="history-list" id="historyList">
                 <div class="empty-state">
                     <span class="empty-icon">📭</span>
@@ -359,7 +369,9 @@
                 </div>
                 <div class="footer-info">
                     <p><strong>⚠️ Disclaimer:</strong></p>
-                    <p>Website ini adalah simulator edukasi untuk pembelajaran Kecerdasan Buatan. Hasil analisis <strong>bukan pengganti diagnosis medis profesional</strong>. Selalu konsultasikan dengan dokter untuk pemeriksaan kesehatan yang akurat.</p>
+                    <p>Website ini adalah simulator edukasi untuk pembelajaran Kecerdasan Buatan. Hasil analisis
+                        <strong>bukan pengganti diagnosis medis profesional</strong>. Selalu konsultasikan dengan dokter
+                        untuk pemeriksaan kesehatan yang akurat.</p>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -369,10 +381,11 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="js/fuzzy-engine.js"></script>
-    <script src="js/charts.js"></script>
-    <script src="js/profiles.js"></script>
-    <script src="js/history.js"></script>
-    <script src="js/app.js"></script>
+    <script src="fuzzy-engine.js"></script>
+    <script src="charts.js"></script>
+    <script src="profiles.js"></script>
+    <script src="history.js"></script>
+    <script src="app.js"></script>
 </body>
+
 </html>
